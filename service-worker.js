@@ -1,11 +1,15 @@
 
+const CACHE_NAME = 'jammer-cache';
+const BASE_PATH = '/jammer_endurance_app/';
+
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open('jammer-cache').then(cache => {
+    caches.open(CACHE_NAME).then(cache => {
       return cache.addAll([
-        '/',
-        '/index.html',
-        '/manifest.json'
+        BASE_PATH,
+        BASE_PATH + 'index.html',
+        BASE_PATH + 'manifest.json',
+        BASE_PATH + 'service-worker.js'
       ]);
     })
   );
